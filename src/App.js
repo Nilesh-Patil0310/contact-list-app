@@ -19,7 +19,7 @@ const App = () => {
       .catch((error) => console.error("Error fetching contacts:", error));
   }, []);
 
-  // function to add contact
+  // function to add contactlist
   const addContact = (contact) => {
     axios
       .post("https://jsonplaceholder.typicode.com/users", contact)
