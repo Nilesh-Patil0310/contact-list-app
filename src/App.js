@@ -6,11 +6,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 
-
+// Main App component
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [currentContact, setCurrentContact] = useState(null);
 
+  // Fetch contacts from the API when the component mounts
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
@@ -18,6 +19,7 @@ const App = () => {
       .catch((error) => console.error("Error fetching contacts:", error));
   }, []);
 
+  // function to add contact
   const addContact = (contact) => {
     axios
       .post("https://jsonplaceholder.typicode.com/users", contact)
@@ -25,6 +27,7 @@ const App = () => {
       .catch((error) => console.error("Error adding contact:", error));
   };
 
+  // function to update contact
   const updateContact = (contact) => {
     axios
       .put(`https://jsonplaceholder.typicode.com/users/${contact.id}`, contact)
@@ -38,6 +41,7 @@ const App = () => {
       .catch((error) => console.error("Error updating contact:", error));
   };
 
+  // function to delete contact
   const deleteContact = (id) => {
     axios
       .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
@@ -50,12 +54,14 @@ const App = () => {
       .catch((error) => console.error("Error deleting contact:", error));
   };
 
+  // function to set the current contact for editing
   const editContact = (contact) => {
     setCurrentContact(contact);
   };
 
   return (
     <div>
+      {/* Router for navigating between deferent components */}
       <Router>
         <Navbar />
         <Routes>
