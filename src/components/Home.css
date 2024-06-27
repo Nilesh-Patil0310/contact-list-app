@@ -1,0 +1,14 @@
+.Home-page{
+    width: 100%;
+    min-height: 91.5vh;
+    max-height: auto;
+}
+
+.homeimg{
+    width: 200px;
+    height: 400px;
+}
+
+.viewContact{
+    text-decoration: none;
+}
